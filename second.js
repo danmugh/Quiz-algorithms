@@ -1,14 +1,13 @@
 function palindrome(word) {
-    const removeUnwanted = /[\W_]/g;
-    const lowRegWord = word.toLowerCase().replace(removeUnwanted, '');
-    const reverseWord = lowRegWord.split('').reverse().join('');
-    if (reverseWord === lowRegWord) {
-        alert('Hey! It is a palindrome');
-    } else {
-        alert('Hey! It is not a palindrome');
-
+    const removeUnwanted = /[^A-Za-z0-9]/g;
+    word = word.toLowerCase().replace(removeUnwanted, '');
+    const len = word.length;
+    for (let i = 0; i < len; i++) {
+        if (word[i] !== word[len - 1 - i]) {
+            return false;
+        }
     }
-    return reverseWord === lowRegWord;
+    return true;
 }
+console.log(palindrome("A man, a plan, a canal. Panama"))
 
-palindrome()

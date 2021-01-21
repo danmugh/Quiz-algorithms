@@ -1,8 +1,14 @@
-function reverseNum(x) {
-    const z = x.toString()
-    let y = z.split('').reverse().join('');
-    alert('Hey ' + y);
-    return Math.sign(x) * parseInt(y);
+function reverse(n) {
+    const y = n.toString()
+    const length = y.length
+    let z = []
+
+    for (let a = 0; a < length; a++){
+
+        z.push(y[length - 1 - a])
+    }
+
+    return z.join('')
 }
 
-reverseNum()
+console.log(reverse(243));
